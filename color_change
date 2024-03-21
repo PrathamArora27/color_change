@@ -1,0 +1,35 @@
+// random color generate
+
+const randomColor = function(){
+    const hex = '0123456789ABCDEF';
+    let color = '#';
+
+    for(let i=0;i<6;i++){
+        color = color + hex[Math.floor(Math.random()*16)];
+    }
+
+    return color;
+}
+
+// console.log(randomColor());
+let changeBG;
+const startChangingColor  = function(){
+    document.body.style.backgroundColor = randomColor();
+     if(!changeBG){   // if itis null,then assign new val
+        changeBG = setInterval(function(){
+            document.body.style.backgroundColor = randomColor();
+         },1000); 
+     }
+}
+
+
+const stopChangingColor  = function(){
+    clearInterval(changeBG);
+    changeBG = null;  // cleaner code (dereferencing the value)
+}
+
+
+document.querySelector('#start').addEventListener('click',startChangingColor);  
+// if we write startChangingColor() rather than startChangingColor, it will call it without waiting for the click which isn't our purpose here. We only need reference here.
+
+document.querySelector('#stop').addEventListener('click',stopChangingColor);  
