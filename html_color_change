@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="parent">
+
+        <div class="boxes" id="box-1"></div>
+        <div class="boxes" id="box-2"></div>
+        <div class="boxes" id="box-3"></div>
+        <div class="boxes" id="box-4"></div>
+
+
+        
+    </div>
+
+    <div class="txt">
+        <span id="spann">Click on the box to make bg that color</span>
+
+    </div>
+
+    
+</body>
+
+<script>
+    const buttons = document.querySelectorAll('.boxes');
+    const body = document.querySelector("body");
+    const text = document.querySelector('.txt')
+
+    buttons.forEach( function(button){
+        button.addEventListener('click', function(e){
+            if(e.target.id == 'box-1' ){
+                body.style.backgroundColor = 'yellow';
+                text.style.color = 'black';
+            }
+            if(e.target.id == 'box-2' ){
+                body.style.backgroundColor = 'green';
+            }
+            if(e.target.id == 'box-3' ){
+                body.style.backgroundColor = 'blue';
+            }
+            if(e.target.id == 'box-4' ){
+                body.style.backgroundColor = 'red';
+                
+            }
+            
+        })
+    })
+</script>
+</html>
